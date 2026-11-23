@@ -1,0 +1,28 @@
+{
+  "name": "qa-automation",
+  "version": "1.0.0",
+  "description": "Playwright Automation Testing Suite for M-demo Web App",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "playwright test",
+    "test:ui": "playwright test --ui",
+    "test:headed": "playwright test --headed",
+    "test:auth": "playwright test tests/login.spec.js tests/signup.spec.js tests/logout.spec.js",
+    "test:admin": "playwright test tests/manage-users.spec.js tests/role-management.spec.js tests/add-user.spec.js",
+    "test:dashboard": "playwright test tests/role-views.spec.js",
+    "test:report": "playwright show-report"
+  },
+  "keywords": [
+    "playwright",
+    "testing",
+    "pom",
+    "qa-automation"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.65.1",
+    "@types/node": "^26.6.6"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "emptyCredentials": {
+    "email": "",
+    "password": ""
+  },
+  "shortPassword": {
+    "email": "plus@example.com",
+    "password": "123"
+  },
+  "missingEmail": {
+    "email": "",
+    "password": "Password123!"
+  },
+  "missingPassword": {
+    "email": "plus@example.com",
+    "password": ""
+  },
+  "nonExistentUser": {
+    "email": "unknown_user@example.com",
+    "password": "WrongPassword123!"
+  }
+}
