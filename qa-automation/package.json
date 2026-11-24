@@ -6,6 +6,9 @@
   "type": "module",
   "scripts": {
     "test": "playwright test",
+    "test:chrome": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:webkit": "playwright test --project=webkit",
     "test:ui": "playwright test --ui",
     "test:headed": "playwright test --headed",
     "test:auth": "playwright test tests/login.spec.js tests/signup.spec.js tests/logout.spec.js",

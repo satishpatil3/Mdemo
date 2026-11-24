@@ -13,5 +13,10 @@
     "email": "pro@example.com",
     "password": "Password123!",
     "role": "pro"
+  },
+  "newUser": {
+    "email": "lifecycle_user@example.com",
+    "password": "Password123!",
+    "role": "plus"
   }
 }
