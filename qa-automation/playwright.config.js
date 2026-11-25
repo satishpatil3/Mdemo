@@ -13,7 +13,8 @@ export default defineConfig({
   workers: 1, // 1 worker avoids race conditions in Firebase Firestore state
   reporter: [
     ["html", { open: "never" }],
-    ["list"]
+    ["list"],
+    ["./reporters/excel-reporter.js"]
   ],
   use: {
     baseURL: process.env.BASE_URL || "http://localhost:5173",

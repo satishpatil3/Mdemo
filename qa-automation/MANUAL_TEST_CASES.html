@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <title>QA Manual Test Cases</title>
+        <style>
+                body {
+                        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+                        margin: 20px;
+                        background-color: #f8fafc;
+                        color: #1e293b;
+                }
+
+                h1 {
+                        color: #0f172a;
+                        margin-bottom: 8px;
+                }
+
+                p.subtitle {
+                        color: #64748b;
+                        margin-top: 0;
+                        margin-bottom: 24px;
+                        font-size: 14px;
+                }
+
+                table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        background: #ffffff;
+                        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+                        border-radius: 8px;
+                        overflow: hidden;
+                        font-size: 13px;
+                }
+
+                th {
+                        background: #1e293b;
+                        color: #ffffff;
+                        text-align: left;
+                        padding: 12px 14px;
+                        font-weight: 600;
+                }
+
+                td {
+                        padding: 12px 14px;
+                        border-bottom: 1px solid #e2e8f0;
+                        vertical-align: top;
+                        white-space: pre-line;
+                        line-height: 1.5;
+                }
+
+                tr:hover {
+                        background-color: #f1f5f9;
+                }
+
+                .badge-p1 {
+                        background: #fee2e2;
+                        color: #991b1b;
+                        padding: 3px 8px;
+                        border-radius: 9999px;
+                        font-weight: 600;
+                        font-size: 11px;
+                        display: inline-block;
+                }
+
+                .badge-p2 {
+                        background: #fef3c7;
+                        color: #92400e;
+                        padding: 3px 8px;
+                        border-radius: 9999px;
+                        font-weight: 600;
+                        font-size: 11px;
+                        display: inline-block;
+                }
+
+                .badge-p3 {
+                        background: #e0f2fe;
+                        color: #0369a1;
+                        padding: 3px 8px;
+                        border-radius: 9999px;
+                        font-weight: 600;
+                        font-size: 11px;
+                        display: inline-block;
+                }
+
+                .badge-pass {
+                        background: #dcfce7;
+                        color: #166534;
+                        padding: 3px 8px;
+                        border-radius: 9999px;
+                        font-weight: 600;
+                        font-size: 11px;
+                        display: inline-block;
+                }
+
+                .tc-id {
+                        font-weight: 700;
+                        color: #2563eb;
+                        font-family: monospace;
+                }
+        </style>
+</head>
+
+<body>
+        <h1>Professional Manual Test Cases Specification (28 Test Cases)</h1>
+        <p class="subtitle">M-Demo Web Application - Comprehensive Playwright E2E Test Suite Alignment</p>
+        <table>
+                <thead>
+                        <tr>
+                                <th>Test Case ID</th>
+                                <th>Spec File</th>
+                                <th>Module</th>
+                                <th>Test Case Title</th>
+                                <th>Priority</th>
+                                <th>Pre-conditions</th>
+                                <th>Test Steps</th>
+                                <th>Test Data</th>
+                                <th>Expected Result</th>
+                                <th>Status</th>
+                        </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                                <td class="tc-id">TC-LOGIN-01</td>
+                                <td>tests/login.spec.js</td>
+                                <td>Authentication</td>
+                                <td><strong>Admin user logs in and accesses Admin Dashboard</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. App running at http://localhost:5173
+                                        2. Admin account exists in Firestore</td>
+                                <td>1. Navigate to /login
+                                        2. Enter admin email in 'Email' field
+                                        3. Enter admin password in 'Password' field
+                                        4. Click 'Login' button
+                                        5. Observe URL and dashboard view
+                                        6. Click 'Logout' button in Navbar</td>
+                                <td>Email: admin@example.com
+                                        Password: Password123!</td>
+                                <td>1. Toast: 'Welcome back! Logging you in...'
+                                        2. URL redirects to /dashboard
+                                        3. 'Admin Dashboard' heading and all 6 cards visible
+                                        4. User successfully logged out</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-LOGIN-02</td>
+                                <td>tests/login.spec.js</td>
+                                <td>Authentication</td>
+                                <td><strong>Plus user logs in and accesses Plus Dashboard</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. App running at http://localhost:5173
+                                        2. Plus account exists in Firestore</td>
+                                <td>1. Navigate to /login
+                                        2. Enter plus email in 'Email' field
+                                        3. Enter plus password in 'Password' field
+                                        4. Click 'Login' button
+                                        5. Observe URL and dashboard view
+                                        6. Click 'Logout' button in Navbar</td>
+                                <td>Email: plus@example.com
+                                        Password: Password123!</td>
+                                <td>1. Toast: 'Welcome back! Logging you in...'
+                                        2. URL redirects to /dashboard
+                                        3. 'Plus Dashboard' heading and 3 Plus cards visible
+                                        4. User successfully logged out</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-LOGIN-03</td>
+                                <td>tests/login.spec.js</td>
+                                <td>Authentication</td>
+                                <td><strong>Pro user logs in and accesses Pro Dashboard</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. App running at http://localhost:5173
+                                        2. Pro account exists in Firestore</td>
+                                <td>1. Navigate to /login
+                                        2. Enter pro email in 'Email' field
+                                        3. Enter pro password in 'Password' field
+                                        4. Click 'Login' button
+                                        5. Observe URL and dashboard view
+                                        6. Click 'Logout' button in Navbar</td>
+                                <td>Email: pro@example.com
+                                        Password: Password123!</td>
+                                <td>1. Toast: 'Welcome back! Logging you in...'
+                                        2. URL redirects to /dashboard
+                                        3. 'Pro Dashboard' heading and 5 Pro cards visible
+                                        4. User successfully logged out</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-LOGIN-04</td>
+                                <td>tests/login.spec.js</td>
+                                <td>Authentication</td>
+                                <td><strong>Show warning toast on empty credentials</strong></td>
+                                <td><span class="badge-p2">P2 - High</span></td>
+                                <td>1. App running at http://localhost:5173</td>
+                                <td>1. Navigate to /login
+                                        2. Leave Email and Password fields empty
+                                        3. Click 'Login' button</td>
+                                <td>Email: ''
+                                        Password: ''</td>
+                                <td>1. Amber warning toast: 'Please enter email and password'
+                                        2. Form submission blocked
+                                        3. User remains on /login</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-LOGIN-05</td>
+                                <td>tests/login.spec.js</td>
+                                <td>Authentication</td>
+                                <td><strong>Reject non-existent user with invalid credentials toast</strong></td>
+                                <td><span class="badge-p2">P2 - High</span></td>
+                                <td>1. App running at http://localhost:5173</td>
+                                <td>1. Navigate to /login
+                                        2. Enter non-existent email
+                                        3. Enter invalid password
+                                        4. Click 'Login' button</td>
+                                <td>Email: unknown_user@example.com
+                                        Password: WrongPassword123!</td>
+                                <td>1. Rose error toast: 'Invalid email or password. Please check your credentials.'
+                                        2. Remains on /login page</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-SIGNUP-01</td>
+                                <td>tests/signup.spec.js</td>
+                                <td>Authentication</td>
+                                <td><strong>Show warning if email or password is empty</strong></td>
+                                <td><span class="badge-p2">P2 - High</span></td>
+                                <td>1. App running at http://localhost:5173</td>
+                                <td>1. Navigate to /signup
+                                        2. Leave both fields blank
+                                        3. Click 'Create Account' button</td>
+                                <td>Email: ''
+                                        Password: ''</td>
+                                <td>1. Warning toast: 'Please enter email and password'
+                                        2. Registration is not attempted
+                                        3. User remains on /signup</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-SIGNUP-02</td>
+                                <td>tests/signup.spec.js</td>
+                                <td>Authentication</td>
+                                <td><strong>Show warning if password is less than 6 characters</strong></td>
+                                <td><span class="badge-p2">P2 - High</span></td>
+                                <td>1. App running at http://localhost:5173</td>
+                                <td>1. Navigate to /signup
+                                        2. Enter valid email
+                                        3. Enter password with less than 6 characters (e.g. '123')
+                                        4. Click 'Create Account' button</td>
+                                <td>Email: plus@example.com
+                                        Password: 123</td>
+                                <td>1. Warning toast: 'Password must be at least 6 characters'
+                                        2. No request sent to Firebase
+                                        3. User remains on /signup</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-SIGNUP-03</td>
+                                <td>tests/signup.spec.js</td>
+                                <td>Authentication</td>
+                                <td><strong>Inform user and redirect to login if account is already registered</strong>
+                                </td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. App running at http://localhost:5173
+                                        2. Account plus@example.com is already registered in Firestore</td>
+                                <td>1. Navigate to /signup
+                                        2. Enter existing email: plus@example.com
+                                        3. Enter valid password: Password123!
+                                        4. Click 'Create Account' button</td>
+                                <td>Email: plus@example.com
+                                        Password: Password123!</td>
+                                <td>1. Info toast: 'Email is already registered. Please go to Login.'
+                                        2. Automatically redirects to /login</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-SIGNUP-04</td>
+                                <td>tests/signup.spec.js</td>
+                                <td>Authentication</td>
+                                <td><strong>Click 'Login' link navigates to /login page</strong></td>
+                                <td><span class="badge-p3">P3 - Medium</span></td>
+                                <td>1. App running at http://localhost:5173</td>
+                                <td>1. Navigate to /signup
+                                        2. Click 'Login' link at bottom of form</td>
+                                <td>None</td>
+                                <td>1. Browser navigates to /login
+                                        2. Login heading and inputs are displayed</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-LOGOUT-01</td>
+                                <td>tests/logout.spec.js</td>
+                                <td>Session & Guardrails</td>
+                                <td><strong>Successfully logout from Dashboard and revoke session</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. App running at http://localhost:5173
+                                        2. User logged in at /dashboard</td>
+                                <td>1. Log in with plus@example.com
+                                        2. Verify URL is /dashboard
+                                        3. Click 'Logout' button in Navbar
+                                        4. Observe redirect
+                                        5. Attempt manual browser navigation to /dashboard</td>
+                                <td>Email: plus@example.com
+                                        Password: Password123!</td>
+                                <td>1. User redirected to / or /login
+                                        2. Navigating to /dashboard is blocked by ProtectedRoute and redirects back to
+                                        /login</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-LOGOUT-02</td>
+                                <td>tests/logout.spec.js</td>
+                                <td>Session & Guardrails</td>
+                                <td><strong>Protected route redirects unauthenticated user to /login</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. User is not authenticated</td>
+                                <td>1. Open browser
+                                        2. Directly enter URL http://localhost:5173/dashboard
+                                        3. Press Enter</td>
+                                <td>URL: /dashboard</td>
+                                <td>1. ProtectedRoute catches unauthenticated state
+                                        2. Immediately redirects browser to /login</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-ADDUSER-01</td>
+                                <td>tests/add-user.spec.js</td>
+                                <td>Admin Features</td>
+                                <td><strong>Admin opens modal and verifies role selection options</strong></td>
+                                <td><span class="badge-p2">P2 - High</span></td>
+                                <td>1. Logged in as Admin at /dashboard</td>
+                                <td>1. Click 'Add User' card on Admin Dashboard
+                                        2. Verify modal pops up with title 'Add User'
+                                        3. Verify 'Plus' radio button exists
+                                        4. Verify 'Pro' radio button exists
+                                        5. Verify 'Admin' radio button exists
+                                        6. Click 'X' close button in modal header</td>
+                                <td>Role Radios: plus, pro, admin</td>
+                                <td>1. Modal displays all 3 role radio options correctly
+                                        2. Modal cleanly closes when 'X' is clicked</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-ADDUSER-02</td>
+                                <td>tests/add-user.spec.js</td>
+                                <td>Admin Features</td>
+                                <td><strong>Prevent adding user if email already exists in database</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. Logged in as Admin at /dashboard
+                                        2. plus@example.com already exists in Firestore</td>
+                                <td>1. Click 'Add User' card
+                                        2. Enter Display Name: 'Existing Plus User'
+                                        3. Enter Email: plus@example.com
+                                        4. Select Role: Plus
+                                        5. Click 'Create' button</td>
+                                <td>Name: Existing Plus User
+                                        Email: plus@example.com
+                                        Role: plus</td>
+                                <td>1. Error toast: 'User with email "plus@example.com" already exists'
+                                        2. Duplicate record rejected in Firestore
+                                        3. Click 'X' to close modal</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-ADDUSER-03</td>
+                                <td>tests/add-user.spec.js</td>
+                                <td>Admin Features</td>
+                                <td><strong>Close Add User modal using Cancel button</strong></td>
+                                <td><span class="badge-p3">P3 - Medium</span></td>
+                                <td>1. Logged in as Admin at /dashboard</td>
+                                <td>1. Click 'Add User' card to open modal
+                                        2. Click 'Cancel' button at bottom of modal</td>
+                                <td>None</td>
+                                <td>1. Modal closes immediately
+                                        2. User returns to Admin Dashboard view without saving changes</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-MANAGE-01</td>
+                                <td>tests/manage-users.spec.js</td>
+                                <td>Admin Features</td>
+                                <td><strong>View users table with registered status badges</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. Logged in as Admin at /dashboard
+                                        2. Admin, Plus, and Pro users exist</td>
+                                <td>1. Click 'Manage Users' card on Admin Dashboard
+                                        2. Verify 'Manage Users' section appears
+                                        3. Verify admin@example.com appears in table
+                                        4. Verify plus@example.com appears in table
+                                        5. Verify pro@example.com appears in table
+                                        6. Check status badges ('Signed Up' vs 'Signup Pending')</td>
+                                <td>Emails:
+                                        - admin@example.com
+                                        - plus@example.com
+                                        - pro@example.com</td>
+                                <td>1. Table displays all users
+                                        2. Role badges (Admin, Plus, Pro) and status badges (Signed Up) render properly
+                                </td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-MANAGE-02</td>
+                                <td>tests/manage-users.spec.js</td>
+                                <td>Admin Features</td>
+                                <td><strong>Self-deletion guardrail prevents logged-in admin from deleting
+                                                themselves</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. Logged in as Admin at /dashboard (admin@example.com)</td>
+                                <td>1. Click 'Manage Users' card
+                                        2. Locate the row with admin@example.com
+                                        3. Inspect Action column for this row</td>
+                                <td>User: admin@example.com (current user)</td>
+                                <td>1. Row displays gray 'You (Active Admin)' badge
+                                        2. Red 'Delete' button is NOT rendered, preventing self-deletion</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-MANAGE-03</td>
+                                <td>tests/manage-users.spec.js</td>
+                                <td>Admin Features</td>
+                                <td><strong>Close Manage Users section using X button</strong></td>
+                                <td><span class="badge-p3">P3 - Medium</span></td>
+                                <td>1. Logged in as Admin at /dashboard
+                                        2. 'Manage Users' view is currently open</td>
+                                <td>1. In the top right corner of the Manage Users table card, click 'X' close button
+                                </td>
+                                <td>None</td>
+                                <td>1. 'Manage Users' table section closes cleanly
+                                        2. Returns to standard Admin Dashboard grid view</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-ROLE-01</td>
+                                <td>tests/role-management.spec.js</td>
+                                <td>Admin Features</td>
+                                <td><strong>Self-demotion guardrail prevents logged-in admin from altering own
+                                                role</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. Logged in as Admin at /dashboard (admin@example.com)</td>
+                                <td>1. Click 'Role Management' card
+                                        2. Check admin@example.com in the table list
+                                        3. Enter admin@example.com into 'User Email' input
+                                        4. Select 'Plus' radio
+                                        5. Click 'Change Role' button</td>
+                                <td>Email: admin@example.com
+                                        Role: plus</td>
+                                <td>1. Table shows 'You (Self)' badge for admin row
+                                        2. Error toast: 'You cannot change your own access level to prevent locking
+                                        yourself out of Admin Dashboard.'
+                                        3. Admin role unchanged</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-ROLE-02</td>
+                                <td>tests/role-management.spec.js</td>
+                                <td>Admin Features</td>
+                                <td><strong>Admin successfully updates role of a registered user</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. Logged in as Admin at /dashboard
+                                        2. plus@example.com exists and is signed up</td>
+                                <td>1. Click 'Role Management' card
+                                        2. In database users table, click 'Select to Edit Role' for plus@example.com
+                                        3. Select 'Pro' radio
+                                        4. Click 'Change Role' button
+                                        5. Verify success toast
+                                        6. Click 'Select to Edit Role' again, select 'Plus' and click 'Change Role' to
+                                        revert</td>
+                                <td>Target User: plus@example.com
+                                        Target Roles: pro, then plus</td>
+                                <td>1. Success toast: 'User plus@example.com role changed to PRO successfully!'
+                                        2. Role badge updates to PRO
+                                        3. Reset back to PLUS gives success toast and maintains clean state</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-ROLE-03</td>
+                                <td>tests/role-management.spec.js</td>
+                                <td>Admin Features</td>
+                                <td><strong>Close Role Management section using X button</strong></td>
+                                <td><span class="badge-p3">P3 - Medium</span></td>
+                                <td>1. Logged in as Admin at /dashboard
+                                        2. 'Role Management' view is currently open</td>
+                                <td>1. In the top right corner of Role Management section, click 'X' close button</td>
+                                <td>None</td>
+                                <td>1. 'Role Management' section closes cleanly
+                                        2. Returns to standard Admin Dashboard grid view</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-VIEWS-01</td>
+                                <td>tests/role-views.spec.js</td>
+                                <td>Dashboard Tier Views</td>
+                                <td><strong>Admin Dashboard displays all administrative feature cards</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. User logged in with role == 'admin'</td>
+                                <td>1. Navigate to /login and log in as Admin
+                                        2. Wait for /dashboard to load
+                                        3. Inspect visible cards on the page
+                                        4. Click Logout</td>
+                                <td>Email: admin@example.com
+                                        Password: Password123!</td>
+                                <td>1. URL is /dashboard
+                                        2. Heading is 'Admin Dashboard'
+                                        3. All 6 cards visible: Add User, Manage Users, Role Management, Analytics,
+                                        Reports, Settings</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-VIEWS-02</td>
+                                <td>tests/role-views.spec.js</td>
+                                <td>Dashboard Tier Views</td>
+                                <td><strong>Plus Dashboard displays Plus role cards</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. User logged in with role == 'plus'</td>
+                                <td>1. Navigate to /login and log in as Plus user
+                                        2. Wait for /dashboard to load
+                                        3. Inspect visible cards on the page
+                                        4. Click Logout</td>
+                                <td>Email: plus@example.com
+                                        Password: Password123!</td>
+                                <td>1. URL is /dashboard
+                                        2. Heading is 'Plus Dashboard'
+                                        3. Exactly 3 cards visible: View Projects, Create Project, Basic Reports
+                                        4. No admin or pro cards visible</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-VIEWS-03</td>
+                                <td>tests/role-views.spec.js</td>
+                                <td>Dashboard Tier Views</td>
+                                <td><strong>Pro Dashboard displays Pro role cards</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. User logged in with role == 'pro'</td>
+                                <td>1. Navigate to /login and log in as Pro user
+                                        2. Wait for /dashboard to load
+                                        3. Inspect visible cards on the page
+                                        4. Click Logout</td>
+                                <td>Email: pro@example.com
+                                        Password: Password123!</td>
+                                <td>1. URL is /dashboard
+                                        2. Heading is 'Pro Dashboard'
+                                        3. Exactly 5 cards visible: View Projects, Create Project, Advanced Analytics,
+                                        Export Reports, Priority Support
+                                        4. No admin cards visible</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <!-- End-to-End User Lifecycle Suite -->
+                        <tr>
+                                <td class="tc-id">TC-LIFE-01</td>
+                                <td>tests/user-lifecycle.spec.js</td>
+                                <td>End-to-End User Lifecycle</td>
+                                <td><strong>Brand new user signs up on /signup with default Plus role</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. App running at http://localhost:5173
+                                        2. lifecycle_user@example.com does not exist in DB</td>
+                                <td>1. Navigate to /signup
+                                        2. Verify signup form loaded
+                                        3. Enter new email: lifecycle_user@example.com
+                                        4. Enter password: Password123!
+                                        5. Click 'Create Account' button</td>
+                                <td>Email: lifecycle_user@example.com
+                                        Password: Password123!</td>
+                                <td>1. Success toast: 'Account Created with PLUS Role! Please login.'
+                                        2. Account created in Firestore with role 'plus' and status 'signed_up'
+                                        3. Redirects to /login</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-LIFE-02</td>
+                                <td>tests/user-lifecycle.spec.js</td>
+                                <td>End-to-End User Lifecycle</td>
+                                <td><strong>New user logs in and verifies default Plus Dashboard access</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. lifecycle_user@example.com registered</td>
+                                <td>1. Navigate to /login
+                                        2. Enter email: lifecycle_user@example.com
+                                        3. Enter password: Password123!
+                                        4. Click 'Login' button
+                                        5. Verify /dashboard loads with 'Plus Dashboard' heading
+                                        6. Click 'Logout' button in Navbar</td>
+                                <td>Email: lifecycle_user@example.com
+                                        Password: Password123!</td>
+                                <td>1. User accesses /dashboard
+                                        2. 'Plus Dashboard' is displayed with 3 Plus cards
+                                        3. User logs out and returns to /login</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-LIFE-03</td>
+                                <td>tests/user-lifecycle.spec.js</td>
+                                <td>End-to-End User Lifecycle</td>
+                                <td><strong>Admin logs in and upgrades new user role to PRO</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. Admin account exists
+                                        2. lifecycle_user@example.com exists as Plus user</td>
+                                <td>1. Log in as Admin (admin@example.com)
+                                        2. Access Admin Dashboard
+                                        3. Open 'Role Management' section
+                                        4. Enter email: lifecycle_user@example.com
+                                        5. Select 'Pro' role radio
+                                        6. Click 'Change Role' button
+                                        7. Close Role Management and Logout Admin</td>
+                                <td>Target Email: lifecycle_user@example.com
+                                        New Role: pro</td>
+                                <td>1. Success toast: 'User lifecycle_user@example.com role changed to PRO
+                                        successfully!'
+                                        2. Role updated to 'pro' in Firestore
+                                        3. Admin logs out</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-LIFE-04</td>
+                                <td>tests/user-lifecycle.spec.js</td>
+                                <td>End-to-End User Lifecycle</td>
+                                <td><strong>User logs in again and verifies upgraded Pro Dashboard access</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. lifecycle_user@example.com role promoted to PRO by Admin</td>
+                                <td>1. Navigate to /login
+                                        2. Log in with lifecycle_user@example.com
+                                        3. Wait for /dashboard to load
+                                        4. Verify 'Pro Dashboard' heading appears
+                                        5. Verify all 5 Pro feature cards appear
+                                        6. Click 'Logout' button in Navbar</td>
+                                <td>Email: lifecycle_user@example.com
+                                        Password: Password123!</td>
+                                <td>1. User dynamically routed to 'Pro Dashboard'
+                                        2. All 5 Pro cards visible (Advanced Analytics, Export Reports, Priority
+                                        Support, etc.)
+                                        3. User logs out</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                        <tr>
+                                <td class="tc-id">TC-LIFE-05</td>
+                                <td>tests/user-lifecycle.spec.js</td>
+                                <td>End-to-End User Lifecycle</td>
+                                <td><strong>Admin logs in, deletes the user, and verifies complete removal</strong></td>
+                                <td><span class="badge-p1">P1 - Critical</span></td>
+                                <td>1. Admin account exists
+                                        2. lifecycle_user@example.com exists in DB</td>
+                                <td>1. Log in as Admin (admin@example.com)
+                                        2. Access Admin Dashboard
+                                        3. Open 'Manage Users' section
+                                        4. Locate row for lifecycle_user@example.com
+                                        5. Click 'Delete' button (auto-confirm dialog)
+                                        6. Verify user is removed from table
+                                        7. Close Manage Users and Logout Admin</td>
+                                <td>Target Email: lifecycle_user@example.com</td>
+                                <td>1. Success toast: 'User deleted successfully'
+                                        2. lifecycle_user@example.com is completely removed from Firestore
+                                        3. Table confirms row is gone
+                                        4. Admin logs out cleanly</td>
+                                <td><span class="badge-pass">Pass</span></td>
+                        </tr>
+                </tbody>
+        </table>
+</body>
+
+</html>

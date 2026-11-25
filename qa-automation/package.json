@@ -14,7 +14,8 @@
     "test:auth": "playwright test tests/login.spec.js tests/signup.spec.js tests/logout.spec.js",
     "test:admin": "playwright test tests/manage-users.spec.js tests/role-management.spec.js tests/add-user.spec.js",
     "test:dashboard": "playwright test tests/role-views.spec.js",
-    "test:report": "playwright show-report"
+    "test:report": "playwright show-report",
+    "test:report:excel": "cmd /c start reports/Test_Report.xls"
   },
   "keywords": [
     "playwright",
