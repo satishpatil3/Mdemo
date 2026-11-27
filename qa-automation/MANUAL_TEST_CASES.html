@@ -1,3 +1,4 @@
+c
 <!DOCTYPE html>
 <html lang="en">
 
@@ -103,7 +104,7 @@
 </head>
 
 <body>
-        <h1>Professional Manual Test Cases Specification (28 Test Cases)</h1>
+        <h1>Professional Manual Test Cases Specification (48 Test Cases)</h1>
         <p class="subtitle">M-Demo Web Application - Comprehensive Playwright E2E Test Suite Alignment</p>
         <table>
                 <thead>
@@ -488,64 +489,74 @@
                                         2. Returns to standard Admin Dashboard grid view</td>
                                 <td><span class="badge-pass">Pass</span></td>
                         </tr>
-                        <tr>
-                                <td class="tc-id">TC-VIEWS-01</td>
-                                <td>tests/role-views.spec.js</td>
-                                <td>Dashboard Tier Views</td>
-                                <td><strong>Admin Dashboard displays all administrative feature cards</strong></td>
-                                <td><span class="badge-p1">P1 - Critical</span></td>
-                                <td>1. User logged in with role == 'admin'</td>
-                                <td>1. Navigate to /login and log in as Admin
-                                        2. Wait for /dashboard to load
-                                        3. Inspect visible cards on the page
-                                        4. Click Logout</td>
-                                <td>Email: admin@example.com
-                                        Password: Password123!</td>
-                                <td>1. URL is /dashboard
-                                        2. Heading is 'Admin Dashboard'
-                                        3. All 6 cards visible: Add User, Manage Users, Role Management, Analytics,
-                                        Reports, Settings</td>
-                                <td><span class="badge-pass">Pass</span></td>
-                        </tr>
-                        <tr>
-                                <td class="tc-id">TC-VIEWS-02</td>
-                                <td>tests/role-views.spec.js</td>
-                                <td>Dashboard Tier Views</td>
-                                <td><strong>Plus Dashboard displays Plus role cards</strong></td>
-                                <td><span class="badge-p1">P1 - Critical</span></td>
-                                <td>1. User logged in with role == 'plus'</td>
-                                <td>1. Navigate to /login and log in as Plus user
-                                        2. Wait for /dashboard to load
-                                        3. Inspect visible cards on the page
-                                        4. Click Logout</td>
-                                <td>Email: plus@example.com
-                                        Password: Password123!</td>
-                                <td>1. URL is /dashboard
-                                        2. Heading is 'Plus Dashboard'
-                                        3. Exactly 3 cards visible: View Projects, Create Project, Basic Reports
-                                        4. No admin or pro cards visible</td>
-                                <td><span class="badge-pass">Pass</span></td>
-                        </tr>
-                        <tr>
-                                <td class="tc-id">TC-VIEWS-03</td>
-                                <td>tests/role-views.spec.js</td>
-                                <td>Dashboard Tier Views</td>
-                                <td><strong>Pro Dashboard displays Pro role cards</strong></td>
-                                <td><span class="badge-p1">P1 - Critical</span></td>
-                                <td>1. User logged in with role == 'pro'</td>
-                                <td>1. Navigate to /login and log in as Pro user
-                                        2. Wait for /dashboard to load
-                                        3. Inspect visible cards on the page
-                                        4. Click Logout</td>
-                                <td>Email: pro@example.com
-                                        Password: Password123!</td>
-                                <td>1. URL is /dashboard
-                                        2. Heading is 'Pro Dashboard'
-                                        3. Exactly 5 cards visible: View Projects, Create Project, Advanced Analytics,
-                                        Export Reports, Priority Support
-                                        4. No admin cards visible</td>
-                                <td><span class="badge-pass">Pass</span></td>
-                        </tr>
+                        			<tr>
+				<td class="tc-id">TC-VIEWS-01</td>
+				<td>tests/role-views.spec.js</td>
+				<td>Dashboard Tier Views</td>
+				<td><strong>Admin Dashboard displays Admin badge in Navbar, full navigation tabs, and Home live metrics</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. User logged in with role == 'admin'</td>
+				<td>1. Navigate to /login and log in as Admin
+2. Wait for /dashboard to load
+3. Verify Navbar shows 'Admin Dashboard' badge
+4. Verify Navbar has tabs: Home, Organizations, Buildings, Users
+5. Inspect Home tab overview metrics: Total Users, Total Organizations, Total Buildings
+6. Click Logout</td>
+				<td>Email: admin@example.com
+Password: Password123!</td>
+				<td>1. URL is /dashboard
+2. Navbar displays 'Admin Dashboard'
+3. All 4 navigation tabs (Home, Organizations, Buildings, Users) visible
+4. Home overview displays live platform metrics cards (Total Users, Total Organizations, Total Buildings)
+5. User logs out cleanly</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+                        			<tr>
+				<td class="tc-id">TC-VIEWS-02</td>
+				<td>tests/role-views.spec.js</td>
+				<td>Dashboard Tier Views</td>
+				<td><strong>Plus Dashboard displays Plus badge in Navbar, restricted tabs, and Home live metrics</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. User logged in with role == 'plus'</td>
+				<td>1. Navigate to /login and log in as Plus user
+2. Wait for /dashboard to load
+3. Verify Navbar shows 'Plus Dashboard' badge
+4. Verify Navbar has tabs: Home, Organizations, Buildings (Users tab hidden)
+5. Inspect Home tab metrics overview
+6. Verify old feature cards are removed
+7. Click Logout</td>
+				<td>Email: plus@example.com
+Password: Password123!</td>
+				<td>1. URL is /dashboard
+2. Navbar displays 'Plus Dashboard' badge
+3. Tabs: Home, Organizations, Buildings visible; Users tab is hidden
+4. Home overview shows live platform metrics
+5. User logs out cleanly</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+                        			<tr>
+				<td class="tc-id">TC-VIEWS-03</td>
+				<td>tests/role-views.spec.js</td>
+				<td>Dashboard Tier Views</td>
+				<td><strong>Pro Dashboard displays Pro badge in Navbar, restricted tabs, and Home live metrics</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. User logged in with role == 'pro'</td>
+				<td>1. Navigate to /login and log in as Pro user
+2. Wait for /dashboard to load
+3. Verify Navbar shows 'Pro Dashboard' badge
+4. Verify Navbar has tabs: Home, Organizations, Buildings (Users tab hidden)
+5. Inspect Home tab metrics overview
+6. Verify old feature cards are removed
+7. Click Logout</td>
+				<td>Email: pro@example.com
+Password: Password123!</td>
+				<td>1. URL is /dashboard
+2. Navbar displays 'Pro Dashboard' badge
+3. Tabs: Home, Organizations, Buildings visible; Users tab is hidden
+4. Home overview shows live platform metrics
+5. User logs out cleanly</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
                         <!-- End-to-End User Lifecycle Suite -->
                         <tr>
                                 <td class="tc-id">TC-LIFE-01</td>
@@ -653,7 +664,338 @@
                                         4. Admin logs out cleanly</td>
                                 <td><span class="badge-pass">Pass</span></td>
                         </tr>
-                </tbody>
+                
+			<tr>
+				<td class="tc-id">TC-HOME-01</td>
+				<td>tests/home.spec.js</td>
+				<td>Home</td>
+				<td><strong>Home tab renders live metrics overview cards for Admin</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. App running at http://localhost:5173
+2. Logged in as Admin</td>
+				<td>1. Log in with admin credentials
+2. Observe the default dashboard view (Home tab)
+3. Verify Total Users, Total Organizations, and Total Buildings metric cards are visible with non-negative numeric counts</td>
+				<td>Email: admin@example.com
+Password: Password123!</td>
+				<td>1. Home tab active by default
+2. Metric cards render correct numeric counts without infinite loading spinners</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-HOME-02</td>
+				<td>tests/home.spec.js</td>
+				<td>Home</td>
+				<td><strong>Quick navigation cards on Home redirect to corresponding tabs</strong></td>
+				<td><span class="badge-p2">P2 - High</span></td>
+				<td>1. Logged in at /dashboard</td>
+				<td>1. On Home overview, click 'View Organizations' shortcut card
+2. Verify URL updates to ?tab=organizations and Organizations view loads
+3. Return to Home tab
+4. Click 'View Buildings' shortcut card
+5. Verify URL updates to ?tab=buildings</td>
+				<td>N/A</td>
+				<td>1. Quick links redirect smoothly to active tabs
+2. Navbar active state updates accordingly</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-HOME-03</td>
+				<td>tests/home.spec.js</td>
+				<td>Home</td>
+				<td><strong>Verify platform status and getting started guide section</strong></td>
+				<td><span class="badge-p2">P2 - High</span></td>
+				<td>1. Logged in on Home tab</td>
+				<td>1. Scroll to the System Status / Getting Started section on Home tab
+2. Verify service health indicator displays Operational / Active
+3. Verify onboarding steps or role summary information is displayed</td>
+				<td>N/A</td>
+				<td>1. System status banner is green/operational
+2. Getting started guide renders clearly</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-HOME-04</td>
+				<td>tests/home.spec.js</td>
+				<td>Home</td>
+				<td><strong>Home tab reflects real-time metric counter updates when data changes</strong></td>
+				<td><span class="badge-p2">P2 - High</span></td>
+				<td>1. Logged in as Admin
+2. Note current organization count</td>
+				<td>1. Record initial organization count on Home tab
+2. Navigate to Organizations tab and add a new temporary organization
+3. Navigate back to Home tab
+4. Verify Total Organizations metric incremented by 1</td>
+				<td>Temp Org: 'Metric Test Org'</td>
+				<td>1. Metric counter reflects new organization count without hard page reload</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-ORG-01</td>
+				<td>tests/organizations.spec.js</td>
+				<td>Organizations</td>
+				<td><strong>Organization tab displays organization cards grid</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. Logged in as Admin</td>
+				<td>1. Click 'Organizations' in Navbar
+2. Observe the organization list view
+3. Verify organization cards are displayed with name, specialization badge, and building count</td>
+				<td>N/A</td>
+				<td>1. Organizations grid renders with card layout
+2. Card headers and action buttons are visible</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-ORG-02</td>
+				<td>tests/organizations.spec.js</td>
+				<td>Organizations</td>
+				<td><strong>Admin creates new organization with name</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. Logged in as Admin</td>
+				<td>1. Click '+ Add Organization' button
+2. In modal/input, enter 'Acme Global Corp'
+3. Click 'Create Organization' or 'Submit'
+4. Verify success toast notification</td>
+				<td>Name: 'Acme Global Corp'</td>
+				<td>1. Toast confirms creation
+2. New card 'Acme Global Corp' appears in the grid</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-ORG-03</td>
+				<td>tests/organizations.spec.js</td>
+				<td>Organizations</td>
+				<td><strong>Validate organization creation prevents empty name submission</strong></td>
+				<td><span class="badge-p2">P2 - High</span></td>
+				<td>1. Logged in as Admin on Organizations tab</td>
+				<td>1. Click '+ Add Organization' button
+2. Leave Organization Name input empty or with only whitespace
+3. Click Submit/Create</td>
+				<td>Name: ''</td>
+				<td>1. Form validation error or warning toast: 'Please enter organization name'
+2. No blank record is created</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-ORG-04</td>
+				<td>tests/organizations.spec.js</td>
+				<td>Organizations</td>
+				<td><strong>Edit organization opens edit form with name and specialization fields</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. At least one organization card exists</td>
+				<td>1. Click 'Edit' or the card action on an organization
+2. Verify navigation to /organizations/:id/edit
+3. Verify Organization Name input is populated
+4. Verify Organization Specialization field exists (defaulting to Corporate)</td>
+				<td>N/A</td>
+				<td>1. Edit view loads cleanly with all fields pre-populated</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-ORG-05</td>
+				<td>tests/organizations.spec.js</td>
+				<td>Organizations</td>
+				<td><strong>Admin/Pro updates organization name and specialization</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. On Edit Organization page</td>
+				<td>1. Change Organization Name to 'Acme Tech Solutions'
+2. Change Specialization dropdown to 'AI' or 'Healthcare'
+3. Click 'Save Changes'
+4. Verify success toast notification
+5. Return to organizations list</td>
+				<td>Name: 'Acme Tech Solutions'
+Specialization: 'AI'</td>
+				<td>1. Changes saved to Firestore
+2. Card displays updated name and specialization badge</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-ORG-06</td>
+				<td>tests/organizations.spec.js</td>
+				<td>Organizations</td>
+				<td><strong>Add Building from inside Edit Organization modal/section</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. Inside Edit Organization view for 'Acme Tech Solutions'</td>
+				<td>1. Click '+ Add Building' inside organization edit view
+2. Enter Building Name: 'Acme Innovation Tower' and valid address
+3. Click 'Save Building'
+4. Verify automatic redirect to Buildings section with filter pre-selected for this organization
+5. Verify newly added building is immediately visible without manual browser refresh</td>
+				<td>Building Name: 'Acme Innovation Tower'</td>
+				<td>1. Building created under this organization
+2. Redirects to Buildings tab
+3. New building card renders immediately without browser refresh</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-ORG-07</td>
+				<td>tests/organizations.spec.js</td>
+				<td>Organizations</td>
+				<td><strong>Admin deletes organization with cascading confirmation</strong></td>
+				<td><span class="badge-p2">P2 - High</span></td>
+				<td>1. Logged in as Admin
+2. Target temporary organization created</td>
+				<td>1. On target organization card, click 'Delete'
+2. Confirm browser/modal confirmation dialog
+3. Verify success toast notification</td>
+				<td>Target Org: 'Acme Tech Solutions'</td>
+				<td>1. Organization removed from Firestore
+2. Card disappears from grid</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-BLDG-01</td>
+				<td>tests/buildings.spec.js</td>
+				<td>Buildings</td>
+				<td><strong>Buildings tab displays all buildings cards grid</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. Logged in as Admin</td>
+				<td>1. Click 'Buildings' in Navbar
+2. Verify URL is /dashboard?tab=buildings
+3. Verify building cards display name, address, and assigned organization</td>
+				<td>N/A</td>
+				<td>1. Buildings grid renders all registered building cards</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-BLDG-02</td>
+				<td>tests/buildings.spec.js</td>
+				<td>Buildings</td>
+				<td><strong>Filter buildings by organization using top-right dropdown</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. Multiple organizations and buildings exist</td>
+				<td>1. On Buildings tab, locate the Organization filter dropdown in the top right
+2. Verify that there is no redundant 'Showing buildings for:...' pill on the left
+3. Select a specific organization from dropdown
+4. Verify only buildings belonging to that organization are shown in grid
+5. Select 'All Organizations'
+6. Verify all buildings return to view</td>
+				<td>Org: 'Acme Global Corp'</td>
+				<td>1. Clean header layout with right-aligned dropdown only
+2. Filtering accurately displays matching cards only</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-BLDG-03</td>
+				<td>tests/buildings.spec.js</td>
+				<td>Buildings</td>
+				<td><strong>Add new building directly from Buildings tab</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. Logged in as Admin or Pro on Buildings tab</td>
+				<td>1. Click '+ Add Building' button
+2. Select Organization from dropdown
+3. Enter Building Name: 'Silicon Plaza'
+4. Enter Address: '123 Innovation Way'
+5. Click 'Add Building' / 'Submit'</td>
+				<td>Name: 'Silicon Plaza'
+Address: '123 Innovation Way'</td>
+				<td>1. Success toast notification
+2. Building card immediately added to grid without page refresh</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-BLDG-04</td>
+				<td>tests/buildings.spec.js</td>
+				<td>Buildings</td>
+				<td><strong>Validate building creation prevents missing mandatory fields</strong></td>
+				<td><span class="badge-p2">P2 - High</span></td>
+				<td>1. Open Add Building modal</td>
+				<td>1. Leave Building Name or Organization unselected
+2. Click Submit</td>
+				<td>Name: ''</td>
+				<td>1. Validation warning toast displayed
+2. Form submission prevented</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-BLDG-05</td>
+				<td>tests/buildings.spec.js</td>
+				<td>Buildings</td>
+				<td><strong>Edit existing building details</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. Building card exists</td>
+				<td>1. Click 'Edit' on building card
+2. Verify /buildings/:id/edit loads
+3. Update building name to 'Silicon Plaza Tower A'
+4. Click 'Save Changes'</td>
+				<td>Name: 'Silicon Plaza Tower A'</td>
+				<td>1. Success toast
+2. Updated name reflected on card upon returning to grid</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-BLDG-06</td>
+				<td>tests/buildings.spec.js</td>
+				<td>Buildings</td>
+				<td><strong>Admin deletes building</strong></td>
+				<td><span class="badge-p2">P2 - High</span></td>
+				<td>1. Logged in as Admin</td>
+				<td>1. Locate target building card
+2. Click 'Delete' button
+3. Confirm deletion in confirmation prompt</td>
+				<td>Building: 'Silicon Plaza Tower A'</td>
+				<td>1. Success toast: 'Building deleted successfully'
+2. Building card removed from grid</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-RBAC-01</td>
+				<td>tests/rbac.spec.js</td>
+				<td>Role-Based Access Control</td>
+				<td><strong>Plus user view-only permissions (read-only for orgs & buildings, no delete/create/edit)</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. Logged in as Plus user (plus@example.com)</td>
+				<td>1. Verify Navbar has Home, Organizations, Buildings (Users tab hidden)
+2. Navigate to Organizations tab
+3. Verify '+ Add Organization' and 'Delete' buttons are not visible
+4. Open an organization to view details. Verify inputs are disabled/read-only and 'Save' button is hidden
+5. Navigate to Buildings tab
+6. Verify '+ Add Building' and 'Delete' buttons are not visible
+7. Attempt to navigate directly to /admin?tab=users via URL</td>
+				<td>Email: plus@example.com
+Role: plus</td>
+				<td>1. Plus user cannot create, edit, or delete orgs or buildings
+2. Users tab is inaccessible and redirects to Home</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-RBAC-02</td>
+				<td>tests/rbac.spec.js</td>
+				<td>Role-Based Access Control</td>
+				<td><strong>Pro user edit permissions (can edit org & building details, add buildings, but cannot delete)</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. Logged in as Pro user (pro@example.com)</td>
+				<td>1. Verify Navbar has Home, Organizations, Buildings (Users tab hidden)
+2. Navigate to Organizations tab. Verify '+ Add Organization' and 'Delete' buttons are hidden
+3. Click Edit on an organization card
+4. Verify inputs (Name, Specialization) are editable and 'Save Changes' is visible
+5. Verify '+ Add Building' button is accessible inside Edit Organization
+6. Navigate to Buildings tab. Verify '+ Add Building' is visible, but 'Delete' buttons are hidden
+7. Click Edit on a building card. Verify details can be modified and saved, but 'Delete Building' is absent</td>
+				<td>Email: pro@example.com
+Role: pro</td>
+				<td>1. Pro user can edit organizations and buildings
+2. Pro user can add buildings
+3. Pro user cannot delete any organizations, buildings, or access user management</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+			<tr>
+				<td class="tc-id">TC-RBAC-03</td>
+				<td>tests/rbac.spec.js</td>
+				<td>Role-Based Access Control</td>
+				<td><strong>Admin user full CRUD permissions (unrestricted access across all tabs)</strong></td>
+				<td><span class="badge-p1">P1 - Critical</span></td>
+				<td>1. Logged in as Admin user (admin@example.com)</td>
+				<td>1. Verify Navbar contains Home, Organizations, Buildings, and Users tabs
+2. Verify full CRUD on Organizations (Add, Edit, Delete)
+3. Verify full CRUD on Buildings (Add, Edit, Delete)
+4. Navigate to Users tab and verify User Management, Add User, and Role Management are fully functional</td>
+				<td>Email: admin@example.com
+Role: admin</td>
+				<td>1. Admin retains unrestricted CRUD permissions across all entities and management panels</td>
+				<td><span class="badge-pass">Pass</span></td>
+			</tr>
+		</tbody>
         </table>
 </body>
 

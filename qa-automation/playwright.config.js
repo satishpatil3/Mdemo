@@ -1,4 +1,3 @@
-// @ts-check
 import { defineConfig, devices } from "@playwright/test";
 
 export default defineConfig({
@@ -7,12 +6,12 @@ export default defineConfig({
   expect: {
     timeout: 5000
   },
-  fullyParallel: false, // Run sequentially for reliable database state
+  fullyParallel: false,
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
-  workers: 1, // 1 worker avoids race conditions in Firebase Firestore state
+  workers: 1,
   reporter: [
-    ["html", { open: "never" }],
+    ["html", { outputFolder: "reports", open: "never" }],
     ["list"],
     ["./reporters/excel-reporter.js"]
   ],
@@ -26,14 +25,6 @@ export default defineConfig({
     {
       name: "chromium",
       use: { ...devices["Desktop Chrome"] }
-    },
-    // {
-    //   name: "firefox",
-    //   use: { ...devices["Desktop Firefox"] }
-    // },
-    // {
-    //   name: "webkit",
-    //   use: { ...devices["Desktop Safari"] }
-    // }
+    }
   ]
 });

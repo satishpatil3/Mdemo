@@ -63,9 +63,9 @@ function Login() {
         return;
       }
 
-      // 3. User is valid and signed up
+      // 3. User is valid and signed up (replace history so browser back stays on dashboard)
       toast.success("Welcome back! Logging you in...");
-      navigate("/dashboard");
+      navigate("/dashboard", { replace: true });
     } catch (error) {
       console.error("Login error:", error);
       if (

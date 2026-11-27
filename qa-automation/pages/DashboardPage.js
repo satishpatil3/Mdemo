@@ -11,14 +11,17 @@ export class DashboardPage extends BasePage {
   }
 
   async expectPlusDashboard() {
-    await expect(this.page.locator("h1:has-text('Plus Dashboard')")).toBeVisible();
+    await expect(this.page.locator("nav:has-text('Plus Dashboard')")).toBeVisible();
+    await expect(this.page.locator("text=Total Organizations")).toBeVisible();
   }
 
   async expectProDashboard() {
-    await expect(this.page.locator("h1:has-text('Pro Dashboard')")).toBeVisible();
+    await expect(this.page.locator("nav:has-text('Pro Dashboard')")).toBeVisible();
+    await expect(this.page.locator("text=Total Organizations")).toBeVisible();
   }
 
   async expectAdminDashboard() {
-    await expect(this.page.locator("h1:has-text('Admin Dashboard')")).toBeVisible();
+    await expect(this.page.locator("nav:has-text('Admin Dashboard')")).toBeVisible();
+    await expect(this.page.locator("text=Total Organizations")).toBeVisible();
   }
 }

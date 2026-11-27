@@ -4,20 +4,19 @@ import { expect } from "@playwright/test";
 export class ProDashboardPage extends BasePage {
   constructor(page) {
     super(page);
-    this.heading = page.locator("h1:has-text('Pro Dashboard')");
-    this.viewProjectsCard = page.locator("h3:has-text('View Projects')");
-    this.createProjectCard = page.locator("h3:has-text('Create Project')");
-    this.advancedAnalyticsCard = page.locator("h3:has-text('Advanced Analytics')");
-    this.exportReportsCard = page.locator("h3:has-text('Export Reports')");
-    this.prioritySupportCard = page.locator("h3:has-text('Priority Support')");
+    this.heading = page.locator("nav:has-text('Pro Dashboard')");
+    this.totalOrgsCard = page.locator("h4:has-text('Total Organizations')");
+    this.totalBuildingsCard = page.locator("h4:has-text('Total Buildings')");
+    this.totalUsersCard = page.locator("h4:has-text('Total Users')");
+    this.usersTab = page.locator("nav button:has-text('users')");
   }
 
   async expectPageLoaded() {
     await expect(this.heading).toBeVisible();
-    await expect(this.viewProjectsCard).toBeVisible();
-    await expect(this.createProjectCard).toBeVisible();
-    await expect(this.advancedAnalyticsCard).toBeVisible();
-    await expect(this.exportReportsCard).toBeVisible();
-    await expect(this.prioritySupportCard).toBeVisible();
+    await expect(this.totalOrgsCard).toBeVisible();
+    await expect(this.totalBuildingsCard).toBeVisible();
+    await expect(this.totalUsersCard).toBeVisible();
+    // Users tab must be hidden for Pro
+    await expect(this.usersTab).toHaveCount(0);
   }
 }

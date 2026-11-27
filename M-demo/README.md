@@ -14,10 +14,12 @@ M-demo/
 │
 ├── src/
 │   ├── components/                    # Reusable UI components & modals
+│   │   ├── AddOrganizationModal.jsx   # Modal popup to add a new organization
 │   │   ├── AddUserForm.jsx            # Modal popup to pre-add a user with a role
 │   │   ├── FeatureCard.jsx            # Dashboard feature card UI
 │   │   ├── ManageUsers.jsx            # Admin table: view users, statuses, and delete
 │   │   ├── Navbar.jsx                 # Global header with branding & logout button
+│   │   ├── OrganizationCard.jsx       # Organization card UI (Icon, Name, Country badge)
 │   │   └── RoleManagement.jsx         # Admin panel to edit/reassign user roles
 │   │
 │   ├── context/                       # Global React Context providers
@@ -48,6 +50,7 @@ M-demo/
 │   │
 │   ├── services/                      # Backend & API communication layer
 │   │   ├── authService.js             # Firebase Auth wrapper (signup, login, logout)
+│   │   ├── organizationService.js     # Firestore organizations CRUD (create, query, delete)
 │   │   └── userService.js             # Firestore operations (CRUD, query, deduplication)
 │   │
 │   ├── App.jsx                        # Main router setup & context provider wrapping
